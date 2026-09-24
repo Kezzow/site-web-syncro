@@ -4,14 +4,56 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<style>html,body{background:#04110d;margin:0}</style>
 </head>
 <body>
+<div id="site-loader" style="position:fixed;inset:0;z-index:9999;background:radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1px) 0 0/24px 24px, #04110d;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+  <div style="position:absolute;border-radius:50%;filter:blur(90px);opacity:0.18;width:520px;height:520px;background:#0faa6d;top:-10%;left:-8%;"></div>
+  <div style="position:absolute;border-radius:50%;filter:blur(90px);opacity:0.18;width:460px;height:460px;background:#006849;top:35%;right:-10%;"></div>
+  <div style="position:absolute;border-radius:50%;filter:blur(90px);opacity:0.18;width:400px;height:400px;background:#35d492;bottom:-12%;left:28%;"></div>
+  <img src="assets/syncro-text-blanc.png" alt="Syncro" style="position:relative;z-index:1;width:min(60vw,340px);height:auto;">
+</div>
 <x-dc>
 <helmet>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#04110d"/><circle cx="100" cy="100" r="55" fill="#0faa6d"/><text x="100" y="112" font-size="48" text-anchor="middle" fill="#03150f" font-family="sans-serif" font-weight="700">S</text></svg></template>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Automatisation IA pour TPE PME : saisie de factures automatique, dématérialisation et automatisation des tâches administratives en BTP, industrie, transport et négoce." id="meta-description">
+<link rel="canonical" href="https://syncroia.com/" id="canonical-link">
+<meta property="og:title" content="Syncro — Automatisation IA et numérisation PME" id="og-title">
+<meta property="og:description" content="Automatisation IA pour TPE PME : saisie de factures automatique, dématérialisation et automatisation des tâches administratives." id="og-description">
+<meta property="og:image" content="https://syncroia.com/assets/syncro-logo.png" id="og-image">
+<meta property="og:url" content="https://syncroia.com/" id="og-url">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Syncro — Automatisation IA et numérisation PME" id="twitter-title">
+<meta name="twitter:description" content="Automatisation IA pour TPE PME : saisie de factures automatique, dématérialisation et automatisation des tâches administratives." id="twitter-description">
+<meta name="twitter:image" content="https://syncroia.com/assets/syncro-logo.png" id="twitter-image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Syncro","legalName":"GZ Partners","url":"https://syncroia.com/","logo":"https://syncroia.com/assets/syncro-logo.png","email":"contact@syncroia.com","telephone":"+33788280638","address":{"@type":"PostalAddress","addressLocality":"Lambesc","postalCode":"13410","addressCountry":"FR"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Automatisation IA et numérisation des processus","provider":{"@type":"Organization","name":"Syncro"},"areaServed":"FR","description":"Automatisation des tâches administratives et saisie de factures automatique pour TPE PME du BTP, de l'industrie, du transport et du négoce."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Création de site web pour PME","provider":{"@type":"Organization","name":"Syncro"},"areaServed":"FR","description":"Création de site web sur mesure pour TPE PME, rapide, sobre et optimisé SEO."}</script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#04110d"></rect><circle cx="100" cy="100" r="55" fill="#0faa6d"></circle><text x="100" y="112" font-size="48" text-anchor="middle" fill="#03150f" font-family="sans-serif" font-weight="700">S</text></svg></template>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=silka@400,500,600,700&amp;f[]=clash-display@500,600,700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <style>
+.card-stack{--stack-row:28svh;--stack-card-height:595px;--stack-top:calc((100svh - var(--stack-card-height)) / 2 + 29.5px);--stack-adv:calc(var(--stack-card-height) + var(--stack-row));display:grid;grid-auto-rows:auto}
+.card-stack__item{position:sticky;top:var(--stack-top);height:var(--stack-card-height);margin-bottom:var(--stack-row)}
+@supports (animation-timeline: view()){
+  .card-stack{view-timeline-name:--card-stack}
+  .card-stack__item{animation:card-stack-away linear forwards;animation-timeline:--card-stack;animation-range:exit-crossing calc(var(--stack-i,1) * var(--stack-adv) - 100svh) exit-crossing calc(var(--stack-i,1) * var(--stack-adv) - var(--stack-top))}
+  .card-stack__item:last-of-type{animation:none}
+}
+@keyframes card-stack-away{to{transform:perspective(60em) rotateX(25deg) scale(0.85);filter:brightness(0.45)}}
+@media (prefers-reduced-motion: reduce){.card-stack__item{animation:none}}
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto!important}
+html:not(.lenis){scroll-behavior:smooth}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
 *{box-sizing:border-box}
 body{margin:0}
 a{color:inherit;text-decoration:none}
@@ -20,6 +62,8 @@ a:hover{color:#f3f7f5}
 input[type="range"]{-webkit-appearance:none;appearance:none;height:4px;border-radius:4px;background:rgba(15,170,109,0.22);outline:none}
 input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#0faa6d;cursor:pointer;box-shadow:0 0 0 4px rgba(15,170,109,0.18)}
 input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#0faa6d;border:none;cursor:pointer;box-shadow:0 0 0 4px rgba(15,170,109,0.18)}
+@keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(220px) rotate(540deg);opacity:0}}
+@keyframes success-glow{0%,100%{box-shadow:0 0 24px 4px rgba(15,170,109,0.35),0 0 0 1px rgba(15,170,109,0.6)}50%{box-shadow:0 0 40px 10px rgba(15,170,109,0.55),0 0 0 1px rgba(53,212,146,0.8)}}
 @keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,40px) scale(1.12)}}
 @keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,30px) scale(0.92)}}
 @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.08)}}
@@ -29,6 +73,47 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
 @keyframes corepulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @keyframes scrollleft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes pulsedot{0%,100%{opacity:1}50%{opacity:0.4}}
+
+@media (max-width: 860px){
+  header div[style*="justify-content: space-between"], header div[style*="justify-content:space-between"]{flex-wrap:wrap;gap:8px;padding-top:10px;padding-bottom:10px;}
+  header [data-header-nav]{gap:2px !important;flex-wrap:wrap;overflow:visible;justify-content:flex-start !important;row-gap:4px;order:3;width:100% !important;}
+  header [data-header-nav] a, header [data-header-nav] button{white-space:nowrap;padding:6px 8px !important;font-size:13.5px !important;}
+  [data-services-menu]{width:min(420px,calc(100vw - 32px)) !important;left:0 !important;}
+  header [data-header-cta]{order:2;white-space:nowrap;padding:10px 16px !important;font-size:14px !important;width:auto !important;height:auto !important;}
+
+  div[style*="backdrop-filter: blur(6px)"], div[style*="backdrop-filter:blur(6px)"]{display:none !important;}
+
+  div[style*="max-width: 1180px"], div[style*="max-width:1180px"],
+  div[style*="max-width: 820px"], div[style*="max-width:820px"],
+  div[style*="max-width: 640px"], div[style*="max-width:640px"]{padding-left:20px !important;padding-right:20px !important;}
+
+  div[style*="grid-template-columns: repeat(4, 1fr)"], div[style*="grid-template-columns:repeat(4,1fr)"],
+  div[style*="grid-template-columns: repeat(4, minmax"], div[style*="grid-template-columns:repeat(4,minmax"]{grid-template-columns:1fr !important;}
+  div[style*="grid-template-columns: repeat(3, 1fr)"], div[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr !important;}
+  div[style*="grid-template-columns: repeat(2, 1fr)"], div[style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr !important;}
+  div[style*="grid-template-columns: 1fr 1fr"]:not([data-compare-row]), div[style*="grid-template-columns:1fr 1fr"]:not([data-compare-row]){grid-template-columns:1fr !important;}
+  [data-compare-row]{grid-template-columns:1fr 1fr !important;}
+  [data-compare-table]{font-size:12.5px;}
+  [data-compare-table] > div > div{padding:8px 8px !important;font-size:12px !important;line-height:1.35;}
+  div[style*="grid-template-columns: 1.1fr 1fr"], div[style*="grid-template-columns:1.1fr 1fr"]{grid-template-columns:1fr !important;}
+  div[style*="grid-template-columns: 1.4fr 1fr 1fr"], div[style*="grid-template-columns:1.4fr 1fr 1fr"]{grid-template-columns:1fr !important;gap:28px !important;}
+
+  input[type="range"]{width:100% !important;}
+
+  h1{font-size:clamp(28px,7vw,40px) !important;}
+
+  section[style*="padding: 120px 0px 96px"], section[style*="padding:120px 0 96px"]{padding:80px 0 56px !important;height:auto !important;}
+  section[style*="padding: 100px 0"], section[style*="padding:100px 0"]{padding:56px 0 !important;height:auto !important;}
+  html,body{overflow-x:hidden;}
+  input, textarea{font-size:16px !important;}
+  header [data-header-cta]{padding:12px 18px !important;}
+
+  /* scroll-driven card stack: fixed px sizes and sticky-stack effect don't work on small screens */
+  .card-stack{display:flex !important;flex-direction:column;gap:20px;}
+  .card-stack__item{position:relative !important;top:auto !important;width:100% !important;height:auto !important;margin-bottom:0 !important;animation:none !important;transform:none !important;filter:none !important;}
+  .card-stack__item > div{height:auto !important;}
+  .card-stack span[aria-hidden="true"]{display:none !important;}
+}
 </style>
 </helmet>
 
@@ -42,29 +127,30 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
 
   <!-- HEADER -->
   <header style="position:sticky;top:0;z-index:40;background:rgba(4,17,13,0.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(15,170,109,0.22);">
-    <div style="max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;">
-      <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;padding:18px 0;"><img src="assets/syncro-logo.png" alt="Syncro" style="height:22px;width:auto;display:block;"></a>
-      <nav style="display:flex;gap:4px;font-size:15px;align-items:center;position:relative;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;padding:18px 0;"><img src="assets/syncro-logo.png" alt="Syncro — automatisation IA pour TPE PME" width="120" height="22" style="height:22px;width:auto;display:block;"></a>
+      <nav data-header-nav="" style="display:flex;gap:4px;font-size:15px;align-items:center;position:relative;">
         <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}" style="position:relative;">
-        <button style="background:none;border:1px solid transparent;border-radius:100px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Silka';font-size:15px;color:{{ servicesColor }};padding:8px 16px;" style-hover="border-color:rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);">
+        <button onClick="{{ openServices }}" style="background: none; border: 1px solid transparent; border-radius: 100px; cursor: pointer; display: none; align-items: center; gap: 6px; font-family: 'Silka'; font-size: 15px; color: {{ servicesColor }}; padding: 8px 16px" style-hover="border-color:rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);">
           Services
           <span style="display:inline-block;transform:{{ servicesArrowTransform }};transition:transform .2s ease;">▾</span>
         </button>
 
         <span aria-hidden="true" style="position:absolute;top:32px;left:0;right:0;height:12px;"></span>
         <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
-          <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}" style="position:absolute;top:44px;left:-20px;width:420px;background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4);padding:10px;z-index:50;">
+          <div onClick="{{ closeServices }}" style="position:fixed;inset:0;z-index:45;background:transparent;"></div>
+          <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}" data-services-menu="" style="position:absolute;top:44px;left:-20px;width:420px;background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4);padding:10px;z-index:50;">
             <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:10px;">
               <span style="width:38px;height:38px;flex-shrink:0;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0faa6d" stroke-width="1.7"><path d="M12 3l8 3v6c0 4.5-3.2 8.3-8 9-4.8-.7-8-4.5-8-9V6l8-3Z"></path><path d="M9 12l2 2 4-4"></path></svg>
               </span>
-              <span><span style="display:block;font-family:'Clash Display';font-size:15px;font-weight:600;color:#f3f7f5;">Agence IA</span><span style="display:block;font-size:13px;color:#87a79d;margin-top:2px;">Processus automatisés par l'intelligence artificielle</span></span>
+              <span><span style="display:block;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:15px;font-weight:600;color:#f3f7f5;">Agence IA</span><span style="display:block;font-size:13px;color:#87a79d;margin-top:2px;">Processus automatisés par l'intelligence artificielle pour TPE/PME</span></span>
             </a>
             <a href="#" onClick="{{ goWebsite }}" style="display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:10px;">
               <span style="width:38px;height:38px;flex-shrink:0;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0faa6d" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9Z"></path></svg>
               </span>
-              <span><span style="display:block;font-family:'Clash Display';font-size:15px;font-weight:600;color:#f3f7f5;">Création de site web / SAAS</span><span style="display:block;font-size:13px;color:#87a79d;margin-top:2px;">Sites vitrines rapides, sobres et efficaces</span></span>
+              <span><span style="display:block;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:15px;font-weight:600;color:#f3f7f5;">Création de site web</span><span style="display:block;font-size:13px;color:#87a79d;margin-top:2px;">Sites vitrines rapides, sobres et efficaces</span></span>
             </a>
           </div>
         </sc-if>
@@ -73,42 +159,77 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
         <a href="#" onClick="{{ goAbout }}" style="color:{{ navColorAbout }};border:1px solid transparent;border-radius:100px;padding:8px 16px;transition:color .2s ease;" style-hover="border-color:rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);">À propos</a>
         <a href="#" onClick="{{ goFaq }}" style="color:{{ navColorFaq }};border:1px solid transparent;border-radius:100px;padding:8px 16px;transition:color .2s ease;" style-hover="border-color:rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);">FAQ</a>
       </nav>
-      <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 8px; background: #0faa6d; color: #03150f; width: 162px; height: 30px">Nous contacter</a>
+      <a href="#" data-header-cta="" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 95px; background: #0faa6d; color: #03150f; width: 162px; height: 39px">Nous contacter</a>
     </div>
   </header>
+
+  <sc-if value="{{ showRibbon }}" hint-placeholder-val="{{ true }}">
+  <div aria-hidden="true" style="border-bottom: 1px solid rgba(15,170,109,0.22); background: #00261f; overflow: hidden; padding: 14px 0; position: relative; z-index: 1; user-select: none; -webkit-user-select: none; pointer-events: none; display: none">
+    <div style="display:flex;gap:32px;width:max-content;animation:scrollleft 140s linear infinite;">
+      <!-- repeat 1 -->
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/gmail.svg" alt="Logo Gmail" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/slack.svg" alt="Logo Slack" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/whatsapp.png" alt="Logo WhatsApp Business" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/google-drive.svg" alt="Logo Google Drive" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/google-sheets.svg" alt="Logo Google Sheets" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/odoo.svg" alt="Logo Odoo" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/hubspot.svg" alt="Logo HubSpot" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/openai.svg" alt="Logo OpenAI" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/claude.svg" alt="Logo Anthropic Claude" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/trello.svg" alt="Logo Trello" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/notion.svg" alt="Logo Notion" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/airtable.png" alt="Logo Airtable" style="max-width: 157%; max-height: 201%; width: auto; height: auto; object-fit: contain; display: block; margin: auto"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/stripe.png" alt="Logo Stripe" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/gemini.png" alt="Logo Google Gemini" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <!-- repeat 2 -->
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/gmail.svg" alt="Logo Gmail" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/slack.svg" alt="Logo Slack" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/whatsapp.png" alt="Logo WhatsApp Business" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/google-drive.svg" alt="Logo Google Drive" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/google-sheets.svg" alt="Logo Google Sheets" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/odoo.svg" alt="Logo Odoo" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/hubspot.svg" alt="Logo HubSpot" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/openai.svg" alt="Logo OpenAI" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/claude.svg" alt="Logo Anthropic Claude" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/trello.svg" alt="Logo Trello" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/notion.svg" alt="Logo Notion" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/airtable.png" alt="Logo Airtable" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/stripe.png" alt="Logo Stripe" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+      <div style="background:#fff;border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0;box-sizing:border-box;"><img src="assets/logos/gemini.png" alt="Logo Google Gemini" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;margin:auto;"></div>
+    </div>
+  </div>
+  </sc-if>
 
   <main style="position:relative;z-index:1;">
 
   <!-- ================= HOME ================= -->
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-    <section style="padding:120px 0 96px;border-bottom:1px solid rgba(15,170,109,0.22);position:relative;overflow:hidden;">
+    <section style="padding: 120px 0 96px; border-bottom: 1px solid rgba(15,170,109,0.22); position: relative; overflow: hidden; height: 762px">
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;position:relative;">
-        <div aria-hidden="true" style="position:absolute;left:-8px;top:70px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;left:-8px;top:70px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #0FAA6D"></span>
-          <div><div style="font-family:'Clash Display';font-size:14px;font-weight:600;color:#87a79d;">Slack</div><div style="font-size:11px;color:#5a746c;">Notifications</div></div>
+          <div><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;color:#87a79d;">Slack</div><div style="font-size:11px;color:#5a746c;">Notifications</div></div>
         </div>
-        <div aria-hidden="true" style="position:absolute;right:-8px;top:40px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;right:-8px;top:40px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width:8px;height:8px;border-radius:50%;background:#0faa6d;"></span>
-          <div><div style="font-family: 'Clash Display'; font-size: 14px; font-weight: 600; color: #87A79D">ERP</div><div style="font-size:11px;color:#5a746c;">Logiciel de gestion</div></div>
+          <div><div style="font-family: 'Clash Display', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #87A79D">ERP</div><div style="font-size:11px;color:#5a746c;">Logiciel de gestion</div></div>
         </div>
-        <div aria-hidden="true" style="position:absolute;left:20px;bottom:60px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;left:20px;bottom:60px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #0FAA6D"></span>
-          <div><div style="font-family: 'Clash Display'; font-size: 14px; font-weight: 600; color: #87A79D">Drive</div><div style="font-size:11px;color:#5a746c;">Archive</div></div>
+          <div><div style="font-family: 'Clash Display', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #87A79D">Drive</div><div style="font-size:11px;color:#5a746c;">Archive</div></div>
         </div>
-        <div aria-hidden="true" style="position:absolute;right:24px;bottom:90px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;right:24px;bottom:90px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #0FAA6D"></span>
-          <div><div style="font-family: 'Clash Display'; font-size: 14px; font-weight: 600; color: #87A79D">CRM</div><div style="font-size:11px;color:#5a746c;">Clients</div></div>
+          <div><div style="font-family: 'Clash Display', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #87A79D">CRM</div><div style="font-size:11px;color:#5a746c;">Clients</div></div>
         </div>
 
-        <div style="max-width:820px;margin:0 auto;text-align:center;">
-          <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:24px;">
-            <span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Automatisation IA pour PME
-          </div>
+        <div style="max-width:820px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+          <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:24px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Automatisation IA pour PME</div>
           <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;line-height:1.12;letter-spacing:0.01em;margin:0;font-size:clamp(34px,5vw,56px);">L'IA qui automatise votre <span style="background:rgba(15,170,109,0.22);border-radius:6px;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">administratif chronophage</span>.</h1>
           
           <p style="margin-top:26px;font-size:18px;color:#87a79d;max-width:52ch;margin-left:auto;margin-right:auto;"><br><br>Syncro s'adapte à vos&nbsp;<strong style="color: rgb(243, 247, 245);">outils actuels</strong>&nbsp;pour transformer vos tâches répétitives en productivité et rentabilité. Résultat : plus de temps, une croissance structurée, des gains mesurables.</p><div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-            <a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:#0faa6d;color:#03150f;">Demander un audit gratuit <span>→</span></a>
-            <a href="#" onClick="{{ goPricing }}" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:transparent;color:#f3f7f5;border:1px solid rgba(15,170,109,0.22);">Voir ce qu'on automatise</a>
+            <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 75px; background: #0faa6d; color: #03150f">Demander un audit gratuit <span>→</span></a>
+            
           </div>
           <p style="margin-top:22px;font-size:14px;color:#5a746c;">Mise en place à partir de 990 € · abonnement dès 249 €/mois</p>
         </div>
@@ -117,127 +238,130 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
 
     <div aria-hidden="true" style="border-bottom:1px solid rgba(15,170,109,0.22);background:#00261f;overflow:hidden;padding:16px 0;">
       <div style="display:flex;gap:48px;width:max-content;animation:scrollleft 90s linear infinite;">
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Saisie de factures</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Rapprochement BL / factures</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Relance clients</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Génération de devis</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Suivi de stock</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Synchronisation CRM ↔ ERP</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Classement de documents</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Reporting hebdomadaire</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Saisie de factures</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Rapprochement BL / factures</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Relance clients</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Génération de devis</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Suivi de stock</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Synchronisation CRM ↔ ERP</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Classement de documents</span>
-        <span style="font-family:'Clash Display';font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Reporting hebdomadaire</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Saisie de factures</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Rapprochement BL / factures</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Relance clients</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Génération de devis</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Suivi de stock</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Synchronisation CRM ↔ ERP</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Classement de documents</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Reporting hebdomadaire</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Saisie de factures</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Rapprochement BL / factures</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Relance clients</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Génération de devis</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Suivi de stock</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Synchronisation CRM ↔ ERP</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Classement de documents</span>
+        <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;color:#87a79d;white-space:nowrap;display:flex;align-items:center;gap:10px;"><span style="width:5px;height:5px;border-radius:50%;background:#0faa6d;display:inline-block;"></span>Reporting hebdomadaire</span>
       </div>
     </div>
 
-    <section style="padding:100px 0;border-bottom:1px solid rgba(15,170,109,0.22);">
-      <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Le constat</div>
-        <h2 style="font-family:'Clash Display';font-weight:600;line-height:1.1;letter-spacing:0.01em;margin:0;font-size:clamp(26px,3.4vw,40px);max-width:20ch;"><span style="color:#0faa6d;">Pendant que vous lisez ceci</span>, quelqu'un ressaisit à la main ce qu'un workflow réglerait en <span style="background:rgba(15,170,109,0.22);border-radius:6px;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">quelques secondes</span>.</h2>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;">
-          <div style="background: #0faa6d; color: #03150f; border-radius: 14px; padding: 28px 26px; width: 316px; height: 217px">
-            
-            <div style="font-family:'Clash Display';font-size:44px;font-weight:600;letter-spacing:0.01em;">14h</div><p style="margin-top:10px;font-size:14.5px;font-weight:600;">perdues chaque semaine sur la saisie manuelle de documents.</p>
+    <section style="padding: 100px 0; border-bottom: 1px solid rgba(15,170,109,0.22); background: linear-gradient(180deg,#04110d 0%,#00261f 36%,#062f26 66%,#0b5a3e 100%); height: 2547px">
+      <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
+      <div class="card-stack">
+        <div class="card-stack__item" style="--stack-i: 1; transform-origin: 50% 0%; display: flex; flex-direction: column; justify-content: flex-start; gap: 12px; padding: clamp(22px,2.6vw,34px); border: 1px solid rgba(15,170,109,0.22); border-radius: 16px; background: linear-gradient(180deg,#04110d 0%,#00261f 55%,#062f26 100%); width: 1127px; height: 595px">
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Le constat</div>
+        <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;line-height:1.1;letter-spacing:0.01em;margin:0;font-size:clamp(22px,2.8vw,36px);max-width:24ch;"><span style="color:#0faa6d;">Pendant que vous lisez ceci</span>, quelqu'un ressaisit à la main ce qu'un processus automatisé réglerait en <span style="background:rgba(15,170,109,0.22);border-radius:6px;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">quelques secondes</span>.</h2>
+        <p style="margin:0;color:#87a79d;font-size:16px;max-width:60ch;">La dématérialisation et l'automatisation des tâches administratives permettent de récupérer ce temps, sans changer vos outils.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:8px;">
+          <div style="background:#0faa6d;color:#03150f;border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:clamp(26px,3vw,38px);font-weight:600;letter-spacing:0.01em;line-height:1;">14h</div><p style="margin:8px 0 0;font-size:14px;font-weight:600;">perdues chaque semaine sur la saisie manuelle de documents.</p>
           </div>
-          <div style="border: 1px solid rgba(15,170,109,0.22); border-radius: 14px; padding: 28px 26px; width: 316px; height: 217px">
-            <div style="font-family:'Clash Display';font-size:44px;font-weight:600;letter-spacing:0.01em;">2 400 €</div>
-            <p style="margin-top:10px;color:#87a79d;font-size:14.5px;">coût mensuel moyen d'un poste dédié à cette tâche, erreurs comprises.</p>
+          <div style="border:1px solid rgba(15,170,109,0.22);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:clamp(26px,3vw,38px);font-weight:600;letter-spacing:0.01em;line-height:1;">2 400 €</div>
+            <p style="margin:8px 0 0;color:#87a79d;font-size:14px;">coût mensuel moyen d'un poste dédié à cette tâche, erreurs comprises.</p>
           </div>
-          <div style="border: 1px solid rgba(15,170,109,0.22); border-radius: 14px; padding: 28px 26px; width: 316px; height: 217px">
-            <div style="font-family:'Clash Display';font-size:44px;font-weight:600;letter-spacing:0.01em;">&lt;2,5 mois</div>
-            <p style="margin-top:10px;color:#87a79d;font-size:14.5px;">temps moyen de retour sur investissement d'une automatisation Syncro.</p>
+          <div style="border:1px solid rgba(15,170,109,0.22);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:clamp(26px,3vw,38px);font-weight:600;letter-spacing:0.01em;line-height:1;">&lt;2,5 mois</div>
+            <p style="margin:8px 0 0;color:#87a79d;font-size:14px;">temps moyen de retour sur investissement d'une automatisation Syncro.</p>
           </div>
-          <div style="border: 1px solid rgba(15,170,109,0.22); border-radius: 14px; padding: 28px 26px; width: 316px; height: 217px">
-            <div style="font-family: 'Clash Display'; font-size: 44px; font-weight: 600; letter-spacing: 0.01em; width: 267px; height: 62px">3×</div>
-            <p style="margin-top:10px;color:#87a79d;font-size:14.5px;"><strong style="color:#f3f7f5;">plus de capacité, sans recruter.</strong> Avec l'automatisation, vos équipes absorbent 3 × plus de volume — sans épuisement, sans erreur.</p>
+          <div style="border:1px solid rgba(15,170,109,0.22);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:clamp(26px,3vw,38px);font-weight:600;letter-spacing:0.01em;line-height:1;">3×</div>
+            <p style="margin:8px 0 0;color:#87a79d;font-size:14px;"><strong style="color:#f3f7f5;">plus de capacité, sans recruter.</strong> Avec l'automatisation, vos équipes absorbent 3 × plus de volume — sans épuisement, sans erreur.</p>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
 
-    <section style="padding:100px 0;background:#00261f;border-top:1px solid rgba(15,170,109,0.22);border-bottom:1px solid rgba(15,170,109,0.22);">
-      <div style="max-width:1180px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+        <div class="card-stack__item" style="--stack-i: 2; transform-origin: 50% 0%; display: flex; flex-direction: column; justify-content: flex-start; padding: clamp(22px,2.6vw,34px); border: 1px solid rgba(15,170,109,0.22); border-radius: 16px; background: linear-gradient(180deg,#04110d 0%,#00261f 55%,#062f26 100%); width: 1127px; height: 595px">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,3vw,56px); align-items: center; height: 493px">
         <div>
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Notre approche</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">On s'adapte à vous. Pas l'inverse.</h2>
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">On s'adapte à vous. Pas l'inverse.</h2>
           <p style="margin-top:16px;color:#87a79d;font-size:17px;">La plupart des outils d'automatisation imposent leur propre logiciel. Syncro fait l'inverse : on construit l'automatisation autour de vos outils, de vos process et de vos équipes, tels qu'ils existent aujourd'hui.</p>
         </div>
-        <div style="display:flex;flex-direction:column;gap:2px;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
-            <div style="padding:20px 22px;font-size:15px;font-family:'Clash Display';font-weight:600;color:#87a79d;">Approche classique</div>
-            <div style="padding:20px 22px;font-size:15px;font-family:'Clash Display';font-weight:600;color:#87a79d;">Syncro</div>
+        <div data-compare-table="" style="display:flex;flex-direction:column;gap:2px;">
+          <div data-compare-row="" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <div style="padding:8px 16px;font-size:14px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;color:#87a79d;">Approche classique</div>
+            <div style="padding:8px 16px;font-size:14px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;color:#87a79d;">Syncro</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
-            <div style="padding:20px 22px;font-size:15px;background:rgba(255,255,255,0.03);color:#87a79d;">Vous changez de logiciel pour vous adapter à l'outil</div>
-            <div style="padding:20px 22px;font-size:15px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">On connecte l'IA à vos logiciels actuels</div>
+          <div data-compare-row="" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <div style="padding:11px 16px;font-size:14px;background:rgba(255,255,255,0.03);color:#87a79d;">Vous changez de logiciel pour vous adapter à l'outil</div>
+            <div style="padding:11px 16px;font-size:14px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">On connecte l'IA à vos logiciels actuels</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
-            <div style="padding:20px 22px;font-size:15px;background:rgba(255,255,255,0.03);color:#87a79d;">Un projet figé, livré une fois</div>
-            <div style="padding:20px 22px;font-size:15px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">Un workflow maintenu et ajusté en continu</div>
+          <div data-compare-row="" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <div style="padding:11px 16px;font-size:14px;background:rgba(255,255,255,0.03);color:#87a79d;">Un projet figé, livré une fois</div>
+            <div style="padding:11px 16px;font-size:14px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">Un processus automatisé maintenu et ajusté en continu</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
-            <div style="padding:20px 22px;font-size:15px;background:rgba(255,255,255,0.03);color:#87a79d;">Plusieurs milliers d'euros à sortir d'un coup</div>
-            <div style="padding:20px 22px;font-size:15px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">Une mise en place légère, puis un abonnement mensuel</div>
+          <div data-compare-row="" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <div style="padding:11px 16px;font-size:14px;background:rgba(255,255,255,0.03);color:#87a79d;">Plusieurs milliers d'euros à sortir d'un coup</div>
+            <div style="padding:11px 16px;font-size:14px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">Une mise en place légère, puis un abonnement mensuel</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
-            <div style="padding:20px 22px;font-size:15px;background:rgba(255,255,255,0.03);color:#87a79d;">Un cas d'usage générique</div>
-            <div style="padding:20px 22px;font-size:15px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">Un workflow développé pour votre métier</div>
+          <div data-compare-row="" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <div style="padding:11px 16px;font-size:14px;background:rgba(255,255,255,0.03);color:#87a79d;">Un cas d'usage générique</div>
+            <div style="padding:11px 16px;font-size:14px;background:rgba(15,170,109,0.09);color:#f3f7f5;border-left:2px solid #0faa6d;">Un processus automatisé développé sur mesure</div>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+        </div>
 
-    <section style="padding:100px 0;border-bottom:1px solid rgba(15,170,109,0.22);">
-      <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Le retour sur investissement</div>
-        <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0 0 16px;">Un ROI à chaque niveau</h2>
-        <p style="color:#87a79d;font-size:17px;max-width:60ch;margin-bottom:48px;">Une automatisation sur mesure, c'est avant tout un choix vers la rapidité et la simplicité.</p>
+        <div class="card-stack__item" style="--stack-i: 3; transform-origin: 50% 0%; display: flex; flex-direction: column; justify-content: flex-start; gap: 12px; padding: clamp(22px,2.6vw,34px); border: 1px solid rgba(15,170,109,0.22); border-radius: 16px; background: linear-gradient(180deg,#04110d 0%,#00261f 55%,#062f26 100%); width: 1127px; height: 595px">
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Le retour sur investissement</div>
+        <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.8vw,36px);margin:0;">Un ROI à chaque niveau</h2>
+        <p style="color:#87a79d;font-size:16px;max-width:60ch;margin:0 0 8px;">Une automatisation sur mesure, c'est avant tout un choix vers la rapidité et la simplicité.</p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,170,109,0.22);border:1px solid rgba(15,170,109,0.22);border-radius:14px;overflow:hidden;">
           <div style="background:#00261f;padding:32px 28px;">
-            <h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0 0 12px;">Plus rapide</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0 0 12px;">Plus rapide</h3>
             <p style="color:#87a79d;font-size:14.5px;">Mise en service en <strong style="color:#f3f7f5;">2 semaines</strong> après l'audit, contre plusieurs mois pour un développement sur-mesure classique.</p>
           </div>
           <div style="background:#00261f;padding:32px 28px;">
-            <h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0 0 12px;">Moins coûteux</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0 0 12px;">Moins coûteux</h3>
             <p style="color:#87a79d;font-size:14.5px;"><strong style="color:#f3f7f5;">990 € de mise en place</strong>, puis un abonnement à partir de 249 €/mois — largement sous le coût d'un poste dédié à la saisie.</p>
           </div>
           <div style="background:#00261f;padding:32px 28px;">
-            <h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0 0 12px;">Plus simple</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0 0 12px;">Plus simple</h3>
             <p style="color:#87a79d;font-size:14.5px;">Aucun nouvel outil à apprendre : l'automatisation se branche sur <strong style="color:#f3f7f5;">votre ERP ou logiciel actuel</strong>.</p>
           </div>
         </div>
+        </div>
+        <span aria-hidden="true" style="display:block;height:8svh;"></span>
+      </div>
       </div>
     </section>
 
-    <section style="padding:100px 0;border-bottom:1px solid rgba(15,170,109,0.22);">
+    <section style="padding: 100px 0; border-bottom: 1px solid rgba(15,170,109,0.22); background-color: #00261F">
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="max-width:640px;margin-bottom:56px;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Secteurs</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Pensé pour les métiers à forte volumétrie documentaire</h2>
-          <p style="margin-top:16px;color:#87a79d;font-size:17px;">Quatre secteurs où le volume de factures, commandes et devis rend la saisie manuelle particulièrement coûteuse.</p>
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Pensé pour les métiers à forte volumétrie documentaire</h2>
+          <p style="margin-top:16px;color:#87a79d;font-size:17px;">Automatisation BTP, industrie, transport, négoce : quatre secteurs où le volume de factures, commandes et devis rend la saisie manuelle particulièrement coûteuse.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(15,170,109,0.22);border-radius:14px;overflow:hidden;">
           <div style="padding:32px 26px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
             <div style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(15,170,109,0.22);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0faa6d" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 11h.01M15 11h.01M9 15h.01M15 15h.01"></path></svg></div>
-            <div><h3 style="font-family:'Clash Display';font-size:20px;font-weight:600;margin:16px 0 0;">BTP</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Bons de commande chantier, factures sous-traitants, situations de travaux.</p></div>
+            <div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:600;margin:16px 0 0;">BTP</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Bons de commande chantier, factures sous-traitants, situations de travaux.</p></div>
           </div>
           <div style="padding:32px 26px;border-left:1px solid rgba(15,170,109,0.22);min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
             <div style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(15,170,109,0.22);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0faa6d" stroke-width="1.6"><path d="M3 21h18M5 21V10l4-3 4 3v11M13 21v-8l4-2 4 2v8M9 21v-4h0"></path></svg></div>
-            <div><h3 style="font-family:'Clash Display';font-size:20px;font-weight:600;margin:16px 0 0;">Industrie</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Factures fournisseurs, suivi de production, gestion de stock matières.</p></div>
+            <div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:600;margin:16px 0 0;">Industrie</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Factures fournisseurs, suivi de production, gestion de stock matières.</p></div>
           </div>
           <div style="padding:32px 26px;border-left:1px solid rgba(15,170,109,0.22);min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
             <div style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(15,170,109,0.22);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0faa6d" stroke-width="1.6"><path d="M3 16V6a1 1 0 0 1 1-1h10v11M3 16h11M3 16v2a1 1 0 0 0 1 1h1M14 16h4l3 4v-4h0l-3-5h-4v5Z"></path><circle cx="7" cy="19" r="1.6"></circle><circle cx="17.5" cy="19" r="1.6"></circle></svg></div>
-            <div><h3 style="font-family:'Clash Display';font-size:20px;font-weight:600;margin:16px 0 0;">Transport</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Bons de livraison, facturation intérimaires, suivi des litiges.</p></div>
+            <div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:600;margin:16px 0 0;">Transport</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Bons de livraison, facturation intérimaires, suivi des litiges.</p></div>
           </div>
           <div style="padding:32px 26px;border-left:1px solid rgba(15,170,109,0.22);min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
             <div style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(15,170,109,0.22);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0faa6d" stroke-width="1.6"><path d="M3 9l9-6 9 6M4 9v11h16V9M9 20v-6h6v6"></path></svg></div>
-            <div><h3 style="font-family:'Clash Display';font-size:20px;font-weight:600;margin:16px 0 0;">Négoce</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Commandes fournisseurs, facturation clients, rapprochements en volume.</p></div>
+            <div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:600;margin:16px 0 0;">Négoce</h3><p style="color:#87a79d;font-size:14px;margin-top:12px;">Commandes fournisseurs, facturation clients, rapprochements en volume.</p></div>
           </div>
         </div>
       </div>
@@ -247,22 +371,25 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="max-width:640px;margin-bottom:56px;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Notre méthodologie</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Comment on démarre</h2>
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Comment on démarre</h2>
           <p style="margin-top:16px;color:#87a79d;font-size:17px;">Quatre étapes, sans interruption de votre activité.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
-          <div style="padding-right:24px;"><div style="font-family:'Clash Display';font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">01</div><h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0;">Audit</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">On regarde vos documents, votre logiciel actuel et le volume à traiter. Gratuit, sans engagement.</p></div>
-          <div style="padding:0 24px;border-left:1px solid rgba(15,170,109,0.22);"><div style="font-family:'Clash Display';font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">02</div><h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0;">Développement</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">On construit le workflow connecté à vos outils, calibré sur vos vrais documents.</p></div>
-          <div style="padding:0 24px;border-left:1px solid rgba(15,170,109,0.22);"><div style="font-family:'Clash Display';font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">03</div><h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0;">Mise en service</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">Tests, ajustements, puis mise en production progressive avec votre équipe.</p></div>
-          <div style="padding-left:24px;border-left:1px solid rgba(15,170,109,0.22);"><div style="font-family:'Clash Display';font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">04</div><h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0;">Maintenance</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">Support continu, ajustements et évolutions inclus dans l'abonnement.</p></div>
+          <div style="padding-right:24px;"><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">01</div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0;">Audit</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">On regarde vos documents, votre logiciel actuel et le volume à traiter. Gratuit, sans engagement.</p></div>
+          <div style="padding:0 24px;border-left:1px solid rgba(15,170,109,0.22);"><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">02</div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0;">Développement</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">On construit l'automatisation connectée à vos outils, calibrée sur vos vrais documents.</p></div>
+          <div style="padding:0 24px;border-left:1px solid rgba(15,170,109,0.22);"><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">03</div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0;">Mise en service</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">Tests, ajustements, puis mise en production progressive avec votre équipe.</p></div>
+          <div style="padding-left:24px;border-left:1px solid rgba(15,170,109,0.22);"><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:15px;color:#0faa6d;letter-spacing:0.03em;margin-bottom:14px;">04</div><h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0;">Maintenance</h3><p style="margin-top:10px;color:#87a79d;font-size:14.5px;">Support continu, ajustements et évolutions inclus dans l'abonnement.</p></div>
         </div>
       </div>
     </section>
 
     <section style="background:#00261f;border-top:1px solid rgba(15,170,109,0.22);text-align:left;">
       <div style="max-width:1180px;margin:0 auto;padding:56px 28px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
-        <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(26px,3vw,36px);max-width:20ch;margin:0;">Voyons ensemble ce qui peut être automatisé chez vous.</h2>
-        <a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:#0faa6d;color:#03150f;">Demander un audit gratuit <span>→</span></a>
+        <div>
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(26px,3vw,36px);max-width:20ch;margin:0;">Voyons ensemble ce qui peut être automatisé chez vous.</h2>
+          <p style="margin-top:12px;color:#87a79d;font-size:14.5px;">Vous cherchez plutôt un site vitrine ? <a href="#" onClick="{{ goWebsite }}" style="color:#0faa6d;text-decoration:underline;">Découvrez notre offre de création de site web pour PME</a>.</p>
+        </div>
+        <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 1645px; background: #0faa6d; color: #03150f">Demander un audit gratuit <span>→</span></a>
       </div>
     </section>
   </sc-if>
@@ -271,29 +398,29 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
   <sc-if value="{{ isWebsite }}" hint-placeholder-val="{{ false }}">
     <section style="padding:120px 0 96px;border-bottom:1px solid rgba(15,170,109,0.22);position:relative;overflow:hidden;">
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;position:relative;">
-        <div aria-hidden="true" style="position:absolute;left:-8px;top:70px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;left:-8px;top:70px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width:8px;height:8px;border-radius:50%;background:#0faa6d;"></span>
-          <div><div style="font-family:'Clash Display';font-size:14px;font-weight:600;color:#87a79d;">Responsive</div><div style="font-size:11px;color:#5a746c;">Mobile &amp; desktop</div></div>
+          <div><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;color:#87a79d;">Responsive</div><div style="font-size:11px;color:#5a746c;">Mobile &amp; desktop</div></div>
         </div>
-        <div aria-hidden="true" style="position:absolute;right:-8px;top:40px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;right:-8px;top:40px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width:8px;height:8px;border-radius:50%;background:#0faa6d;"></span>
-          <div><div style="font-family:'Clash Display';font-size:14px;font-weight:600;color:#87a79d;">SEO</div><div style="font-size:11px;color:#5a746c;">Optimisé Google</div></div>
+          <div><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;color:#87a79d;">SEO</div><div style="font-size:11px;color:#5a746c;">Optimisé Google</div></div>
         </div>
-        <div aria-hidden="true" style="position:absolute;left:20px;bottom:60px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;left:20px;bottom:60px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width:8px;height:8px;border-radius:50%;background:#0faa6d;"></span>
-          <div><div style="font-family:'Clash Display';font-size:14px;font-weight:600;color:#87a79d;">SSL</div><div style="font-size:11px;color:#5a746c;">Site sécurisé</div></div>
+          <div><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;color:#87a79d;">SSL</div><div style="font-size:11px;color:#5a746c;">Site sécurisé</div></div>
         </div>
-        <div aria-hidden="true" style="position:absolute;right:24px;bottom:90px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;">
+        <div aria-hidden="true" style="position:absolute;right:24px;bottom:90px;padding:14px 18px;border-radius:14px;border:1px solid rgba(15,170,109,0.22);background:rgba(0,38,31,0.7);user-select:none;-webkit-user-select:none;pointer-events:none;backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;opacity:0.85;z-index:0;pointer-events:none;">
           <span style="width:8px;height:8px;border-radius:50%;background:#0faa6d;"></span>
-          <div><div style="font-family:'Clash Display';font-size:14px;font-weight:600;color:#87a79d;">Livraison</div><div style="font-size:11px;color:#5a746c;">Sous 2 semaines</div></div>
+          <div><div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;color:#87a79d;">Livraison</div><div style="font-size:11px;color:#5a746c;">Sous 2 semaines</div></div>
         </div>
-        <div style="max-width:820px;margin:0 auto;text-align:center;">
+        <div style="max-width:820px;margin:0 auto;text-align:center;position:relative;z-index:1;">
         <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:24px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Création de site web</div>
-        <h1 style="font-family:'Clash Display';font-weight:600;line-height:1.12;letter-spacing:0.01em;margin:0;font-size:clamp(34px,5vw,52px);">Un site <span style="background:rgba(15,170,109,0.22);border-radius:6px;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">sobre, rapide</span>, qui vous ressemble.</h1>
+        <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;line-height:1.12;letter-spacing:0.01em;margin:0;font-size:clamp(34px,5vw,52px);">Un site <span style="background:rgba(15,170,109,0.22);border-radius:6px;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">sobre, rapide</span>, qui vous ressemble.</h1>
         <p style="margin-top:26px;font-size:18px;color:#87a79d;max-width:52ch;margin-left:auto;margin-right:auto;">Site vitrine conçu et développé sur mesure, pensé pour convertir vos visiteurs sans superflu.</p>
         <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-          <a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:#0faa6d;color:#03150f;">Demander un devis gratuit<span>→</span></a>
-          <a href="#" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:transparent;color:#f3f7f5;border:1px solid rgba(15,170,109,0.22);">Voir nos réalisations</a>
+          <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 287px; background: #0faa6d; color: #03150f">Demander un devis gratuit<span>→</span></a>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 1782px; background: transparent; color: #f3f7f5; border: 1px solid rgba(15,170,109,0.22)">Voir nos réalisations</a>
         </div>
         <p style="margin-top:22px;font-size:14px;color:#5a746c;">Mise en place à partir de 1490 € · maintenance dès 15 €/mois</p>
         </div>
@@ -303,15 +430,15 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,170,109,0.22);border:1px solid rgba(15,170,109,0.22);border-radius:14px;overflow:hidden;">
           <div style="background:#00261f;padding:32px 28px;">
-            <h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0 0 12px;">Rapide</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0 0 12px;">Rapide</h3>
             <p style="color:#87a79d;font-size:14.5px;">Un site léger, optimisé, qui charge instantanément.</p>
           </div>
           <div style="background:#00261f;padding:32px 28px;">
-            <h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0 0 12px;">Sobre</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0 0 12px;">Sobre</h3>
             <p style="color:#87a79d;font-size:14.5px;">Un design épuré qui met votre offre en avant, sans bruit visuel.</p>
           </div>
           <div style="background:#00261f;padding:32px 28px;">
-            <h3 style="font-family:'Clash Display';font-size:19px;font-weight:600;margin:0 0 12px;">Sur mesure</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:19px;font-weight:600;margin:0 0 12px;">Sur mesure</h3>
             <p style="color:#87a79d;font-size:14.5px;">Développé pour votre activité, pas un template générique.</p>
           </div>
         </div>
@@ -319,8 +446,50 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
     </section>
     <section style="background:#00261f;border-top:1px solid rgba(15,170,109,0.22);text-align:left;">
       <div style="max-width:1180px;margin:0 auto;padding:56px 28px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
-        <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(26px,3vw,36px);max-width:20ch;margin:0;">Parlons de votre site.</h2>
+        <div>
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(26px,3vw,36px);max-width:20ch;margin:0;">Parlons de votre site.</h2>
+          <p style="margin-top:12px;color:#87a79d;font-size:14.5px;">Vous voulez plutôt automatiser vos tâches administratives ? <a href="#" onClick="{{ goHome }}" style="color:#0faa6d;text-decoration:underline;">Découvrez notre offre d'automatisation IA</a>.</p>
+        </div>
         <a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:#0faa6d;color:#03150f;">Demander un devis gratuit<span>→</span></a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ================= MENTIONS LEGALES ================= -->
+  <sc-if value="{{ isLegal }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:100px 0;">
+      <div style="max-width:820px;margin:0 auto;padding:0 28px;">
+        <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0 0 40px;">Mentions légales</h1>
+        <div style="display:flex;flex-direction:column;gap:36px;color:#87a79d;font-size:15.5px;line-height:1.7;">
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">Éditeur du site</h2>
+            <p style="margin:0;">GZ PARTNERS (nom commercial : Syncro)<br>Micro-entreprise<br>Adresse : 3 Route de Rognes, Étage 0, 13410 Lambesc, France<br>SIRET : 989 691 902 00013<br>Email : contact@syncroia.com<br>Téléphone : 07 88 28 06 38</p>
+          </div>
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">Directeur de la publication</h2>
+            <p style="margin:0;">Le représentant légal de GZ PARTNERS.</p>
+          </div>
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">Hébergement</h2>
+            <p style="margin:0;">Ce site est hébergé par Vercel Inc.<br>440 N Barranca Ave #4133, Covina, CA 91723, USA<br>https://vercel.com</p>
+          </div>
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">Propriété intellectuelle</h2>
+            <p style="margin:0;">L'ensemble du contenu de ce site (textes, visuels, logos, structure) est la propriété exclusive de GZ PARTNERS. Toute reproduction, même partielle, est interdite sans autorisation écrite préalable.</p>
+          </div>
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">TVA</h2>
+            <p style="margin:0;">TVA non applicable, article 293 B du Code Général des Impôts.</p>
+          </div>
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">Données personnelles</h2>
+            <p style="margin:0;">GZ PARTNERS collecte uniquement les données nécessaires au traitement de vos demandes de contact. Ces données ne sont jamais revendues à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant contact@syncroia.com.</p>
+          </div>
+          <div>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#f3f7f5;margin:0 0 10px;">Cookies</h2>
+            <p style="margin:0;">Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de tracking tiers n'est utilisé.</p>
+          </div>
+        </div>
       </div>
     </section>
   </sc-if>
@@ -331,14 +500,14 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="max-width:640px;margin-bottom:56px;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Tarifs</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Une mise en place légère, un coût prévisible</h2>
-          <p style="margin-top:16px;color:#87a79d;font-size:17px;">Pas de gros projet à financer d'un coup. Le tarif exact dépend de votre volume de documents et vous est donné après l'audit.</p>
+          <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Une mise en place légère, un coût prévisible</h1>
+          <p style="margin-top:16px;color:#87a79d;font-size:17px;">Pas de gros projet à financer d'un coup. Le tarif exact dépend de votre volume de documents et vous est donné après l'audit. Besoin plutôt d'un site web ? <a href="#" onClick="{{ goWebsite }}" style="color:#0faa6d;text-decoration:underline;">Voir notre offre de création de site web</a>.</p>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(15,170,109,0.22);border:1px solid rgba(15,170,109,0.22);border-radius:14px;overflow:hidden;">
           <div style="background:#00261f;padding:40px 36px;">
             <div style="font-size:14px;color:#87a79d;margin-bottom:10px;">Mise en place</div>
-            <div style="font-family:'Clash Display';font-size:44px;font-weight:600;letter-spacing:0.01em;">990 €<span style="font-size:16px;font-weight:500;color:#87a79d;font-family:'Clash Display';"> HT, une fois</span></div>
-            <p style="margin-top:18px;color:#87a79d;font-size:14.5px;max-width:36ch;">Audit, développement du workflow sur-mesure, tests et mise en service.</p>
+            <div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:44px;font-weight:600;letter-spacing:0.01em;">990 €<span style="font-size:16px;font-weight:500;color:#87a79d;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;"> HT, une fois</span></div>
+            <p style="margin-top:18px;color:#87a79d;font-size:14.5px;max-width:36ch;">Audit, développement du processus automatisé sur-mesure, tests et mise en service.</p>
             <ul style="list-style:none;margin:26px 0 0;padding:20px 0 0;border-top:1px solid rgba(15,170,109,0.22);display:flex;flex-direction:column;gap:12px;">
               <li style="font-size:14px;padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:6px;width:11px;height:6px;border-left:1.6px solid #0faa6d;border-bottom:1.6px solid #0faa6d;transform:rotate(-45deg);"></span>Audit de vos documents et de vos outils</li>
               <li style="font-size:14px;padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:6px;width:11px;height:6px;border-left:1.6px solid #0faa6d;border-bottom:1.6px solid #0faa6d;transform:rotate(-45deg);"></span>Workflow connecté à votre logiciel actuel</li>
@@ -347,7 +516,7 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
           </div>
           <div style="background:#062f26;padding:40px 36px;">
             <div style="font-size:14px;color:#87a79d;margin-bottom:10px;">Abonnement</div>
-            <div style="font-family:'Clash Display';font-size:44px;font-weight:600;letter-spacing:0.01em;">249 €<span style="font-size:16px;font-weight:500;color:#87a79d;font-family:'Clash Display';"> HT / mois</span></div>
+            <div style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:44px;font-weight:600;letter-spacing:0.01em;">249 €<span style="font-size:16px;font-weight:500;color:#87a79d;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;"> HT / mois</span></div>
             <p style="margin-top:18px;color:#87a79d;font-size:14.5px;max-width:36ch;">Maintenance, hébergement en Union Européenne, support technique et évolutions.</p>
             <ul style="list-style:none;margin:26px 0 0;padding:20px 0 0;border-top:1px solid rgba(15,170,109,0.22);display:flex;flex-direction:column;gap:12px;">
               <li style="font-size:14px;padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:6px;width:11px;height:6px;border-left:1.6px solid #0faa6d;border-bottom:1.6px solid #0faa6d;transform:rotate(-45deg);"></span>Hébergement et maintenance inclus</li>
@@ -364,22 +533,22 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
           <div>
             <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Simulation</div>
-            <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Estimez le temps que vous pourriez gagner</h2>
+            <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Estimez le temps que vous pourriez gagner</h2>
             <p style="margin-top:16px;color:#87a79d;font-size:17px;">Déplacez le curseur selon votre volume mensuel de documents pour voir une estimation du temps récupéré pour vos équipes.</p>
             <div style="margin-top:40px;padding-top:6px;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;font-size:14.5px;color:#87a79d;">
                 <span>Documents à traiter par mois</span>
-                <strong style="font-family:'Clash Display';font-size:20px;color:#f3f7f5;font-weight:600;">{{ simVolumeLabel }}</strong>
+                <strong style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;color:#f3f7f5;font-weight:600;">{{ simVolumeLabel }}</strong>
               </div>
               <input type="range" min="20" max="1000" step="10" value="{{ simVolume }}" onChange="{{ onSimChange }}" style="width: 100%; height: 8px">
               <div style="display:flex;justify-content:space-between;font-size:12px;color:#5a746c;margin-top:8px;"><span>20</span><span>1000+</span></div>
             </div>
           </div>
           <div style="background:#04110d;border:1px solid rgba(15,170,109,0.22);border-radius:26px;padding:32px;margin-top:64px;z-index:105;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(15,170,109,0.22);"><span style="font-size:14.5px;color:#87a79d;">Temps de saisie manuelle estimé</span><span style="font-family:'Clash Display';font-size:20px;font-weight:600;">{{ simTime }}</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(15,170,109,0.22);"><span style="font-size:14.5px;color:#87a79d;">Temps de saisie manuelle estimé</span><span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:600;">{{ simTime }}</span></div>
             <div style="margin-top:20px;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
               <span style="font-size:15px;color:#87a79d;">Temps libéré pour vos équipes</span>
-              <span style="font-family:'Clash Display';font-size:28px;font-weight:600;color:#0faa6d;">{{ simTimeFreed }}</span>
+              <span style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:28px;font-weight:600;color:#0faa6d;">{{ simTimeFreed }}</span>
             </div>
           </div>
         </div>
@@ -392,8 +561,8 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
     <section style="padding:100px 0;border-bottom:1px solid rgba(15,170,109,0.22);">
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Qui sommes-nous</div>
-        <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(26px,3.4vw,40px);max-width:20ch;margin:0;">On s'adapte à vous. Pas l'inverse.</h2>
-        <p style="margin-top:22px;color:#87a79d;font-size:17px;max-width:58ch;">Syncro automatise la saisie, l'extraction et le transfert de documents administratifs pour les PME. On connecte l'IA à l'ERP, au CRM ou au logiciel de comptabilité que vous utilisez déjà sans jamais vous demander de changer d'outil.</p>
+        <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(26px,3.4vw,40px);max-width:20ch;margin:0;">On s'adapte à vous. Pas l'inverse.</h1>
+        <p style="margin-top:22px;color:#87a79d;font-size:17px;max-width:58ch;">Syncro automatise la saisie, l'extraction, la dématérialisation et le transfert de documents administratifs pour les TPE PME. On connecte l'IA à l'ERP, au CRM ou au logiciel de comptabilité que vous utilisez déjà sans jamais vous demander de changer d'outil.</p>
         <p style="margin-top:18px;color:#87a79d;font-size:17px;max-width:58ch;">Syncro n'exerce aucune activité de comptabilité, réservée par la loi aux experts-comptables. L'automatisation se limite à la saisie et au transfert de données, en complément de votre expert-comptable, jamais à sa place.</p>
       </div>
     </section>
@@ -402,38 +571,38 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="max-width:640px;margin-bottom:56px;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Sécurité</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Vos données restent en Europe, et sous votre contrôle</h2>
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Vos données restent en Europe, et sous votre contrôle</h2>
           <p style="margin-top:16px;color:#87a79d;font-size:17px;">L'automatisation manipule des documents sensibles : factures, coordonnées clients et fournisseurs. La conformité RGPD n'est pas une option chez Syncro, elle est intégrée dès la conception.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,170,109,0.22);border:1px solid rgba(15,170,109,0.22);border-radius:14px;overflow:hidden;">
           <div style="background:#04110d;padding:28px 26px;">
             <div style="width:38px;height:38px;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#0faa6d" stroke-width="1.7"><path d="M12 3l8 3v6c0 4.5-3.2 8.3-8 9-4.8-.7-8-4.5-8-9V6l8-3Z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
-            <h3 style="font-family:'Clash Display';font-size:16px;font-weight:600;margin-bottom:8px;">Hébergement en Union Européenne</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;">Hébergement en Union Européenne</h3>
             <p style="font-size:14px;color:#87a79d;line-height:1.55;">Vos documents et vos données ne quittent jamais le territoire de l'UE, à aucune étape du traitement.</p>
           </div>
           <div style="background:#04110d;padding:28px 26px;">
             <div style="width:38px;height:38px;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#0faa6d" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></div>
-            <h3 style="font-family:'Clash Display';font-size:16px;font-weight:600;margin-bottom:8px;">Chiffrement de bout en bout</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;">Chiffrement de bout en bout</h3>
             <p style="font-size:14px;color:#87a79d;line-height:1.55;">Données chiffrées en transit et au repos, accès restreint et identifiants isolés par client.</p>
           </div>
           <div style="background:#04110d;padding:28px 26px;">
             <div style="width:38px;height:38px;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#0faa6d" stroke-width="1.7"><path d="M9 12h6M9 16h6M9 8h6"></path><rect x="5" y="3" width="14" height="18" rx="2"></rect></svg></div>
-            <h3 style="font-family:'Clash Display';font-size:16px;font-weight:600;margin-bottom:8px;">Accord de sous-traitance (DPA)</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;">Accord de sous-traitance (DPA)</h3>
             <p style="font-size:14px;color:#87a79d;line-height:1.55;">Un accord RGPD signé avec chaque client, conforme à l'article 28, précise exactement ce qui est fait de vos données.</p>
           </div>
           <div style="background:#04110d;padding:28px 26px;">
             <div style="width:38px;height:38px;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#0faa6d" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg></div>
-            <h3 style="font-family:'Clash Display';font-size:16px;font-weight:600;margin-bottom:8px;">Conservation limitée</h3>
-            <p style="font-size:14px;color:#87a79d;line-height:1.55;">Les documents traités sont supprimés dès que le workflow est exécuté, jamais conservés au-delà du nécessaire.</p>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;">Conservation limitée</h3>
+            <p style="font-size:14px;color:#87a79d;line-height:1.55;">Les documents traités sont supprimés dès que le processus est exécuté, jamais conservés au-delà du nécessaire.</p>
           </div>
           <div style="background:#04110d;padding:28px 26px;">
             <div style="width:38px;height:38px;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#0faa6d" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></div>
-            <h3 style="font-family:'Clash Display';font-size:16px;font-weight:600;margin-bottom:8px;">Sous-traitants identifiés</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;">Sous-traitants identifiés</h3>
             <p style="font-size:14px;color:#87a79d;line-height:1.55;">Chaque prestataire technique (hébergement, IA) est listé nommément dans le DPA, rien n'est laissé dans le flou.</p>
           </div>
           <div style="background:#04110d;padding:28px 26px;">
             <div style="width:38px;height:38px;border-radius:10px;background:rgba(15,170,109,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#0faa6d" stroke-width="1.7"><path d="M3 12a9 9 0 1 0 9-9"></path><path d="M3 5v6h6"></path></svg></div>
-            <h3 style="font-family:'Clash Display';font-size:16px;font-weight:600;margin-bottom:8px;">Suppression ou restitution</h3>
+            <h3 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;">Suppression ou restitution</h3>
             <p style="font-size:14px;color:#87a79d;line-height:1.55;">À la fin du contrat, vos données sont détruites ou restituées, selon votre choix, sous 30 jours.</p>
           </div>
         </div>
@@ -443,7 +612,7 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
     <section style="padding:100px 0;">
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Informations légales</div>
-        <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0 0 24px;">L'entreprise</h2>
+        <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0 0 24px;">L'entreprise</h2>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid rgba(15,170,109,0.22);">
           <div style="padding:20px 24px 20px 0;border-bottom:1px solid rgba(15,170,109,0.22);"><div style="font-size:13px;color:#5a746c;margin-bottom:6px;">Raison sociale</div><div style="font-size:15px;">GZ PARTNERS</div></div>
           <div style="padding:20px 0 20px 24px;border-bottom:1px solid rgba(15,170,109,0.22);border-left:1px solid rgba(15,170,109,0.22);"><div style="font-size:13px;color:#5a746c;margin-bottom:6px;">SIRET</div><div style="font-size:15px;">989 691 902 00013</div></div>
@@ -460,35 +629,145 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="max-width:640px;margin-bottom:56px;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Contact</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Parlons de votre projet</h2>
+          <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Parlons de votre projet</h1>
           <p style="margin-top:16px;color:#87a79d;font-size:17px;">Un audit gratuit, sans engagement : on regarde vos documents, vos outils actuels et le volume à traiter.</p>
         </div>
         <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start;">
-          <form onSubmit="{{ onFormSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
+          <form onSubmit="{{ onFormSubmit }}" noValidate="" style="display:flex;flex-direction:column;gap:16px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
               <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#87a79d;">Nom
-                <input type="text" required="" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
+                <input type="text" name="nom" required="" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
               </label>
               <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#87a79d;">Entreprise
-                <input type="text" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
+                <input type="text" name="entreprise" required="" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
               </label>
             </div>
             <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#87a79d;">Email
-              <input type="email" required="" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
+              <input type="email" name="email" required="" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#87a79d;">Numéro de téléphone
+              <input type="tel" name="telephone" required="" minlength="9" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;">
             </label>
             <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#87a79d;">Votre besoin
-              <textarea rows="4" placeholder="Listez les tâches que vous souhaitez automatiser, ainsi que les logiciels que vous utilisez" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;resize:vertical;"></textarea>
+              <textarea rows="4" name="message" required="" placeholder="Listez les tâches que vous souhaitez automatiser, ainsi que les logiciels que vous utilisez" style="background:#00261f;border:1px solid rgba(15,170,109,0.22);border-radius:8px;padding:12px 14px;color:#f3f7f5;font-family:'Silka';font-size:15px;resize:vertical;"></textarea>
             </label>
-            <button type="submit" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:#0faa6d;color:#03150f;border:none;cursor:pointer;font-family:'Silka';margin-top:8px;">Envoyer <span>→</span></button>
-            <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
-              <p style="color:#0faa6d;font-size:14px;">Merci, votre demande a bien été enregistrée. On vous répond sous 24h.</p>
+            <button type="submit" disabled="{{ formSubmitting }}" style="display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;background:#0faa6d;color:#03150f;border:none;cursor:pointer;font-family:'Silka';margin-top:8px;opacity:{{ formButtonOpacity }};">{{ formButtonLabel }} <span>→</span></button>
+            <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+              <p style="color:#e2725b;font-size:14px;">Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement à <a href="mailto:contact@syncroia.com" style="color:#e2725b;text-decoration:underline;">contact@syncroia.com</a>.</p>
+            </sc-if>
+            <sc-if value="{{ formInvalid }}" hint-placeholder-val="{{ false }}">
+              <p style="color:#e2725b;font-size:14px;">Mauvaise syntaxe, merci de vérifier les champs du formulaire.</p>
             </sc-if>
           </form>
           <div style="display:flex;flex-direction:column;gap:1px;background:rgba(15,170,109,0.22);border:1px solid rgba(15,170,109,0.22);border-radius:14px;overflow:hidden;">
-            <a href="mailto:contact@syncroia.com" style="background:#00261f;padding:22px 24px;"><div style="font-size:13px;color:#5a746c;margin-bottom:6px;">Email</div><div style="font-size:15px;font-family:'Clash Display';font-weight:600;">contact@syncroia.com</div></a>
-            <a href="tel:+33788280638" style="background:#00261f;padding:22px 24px;"><div style="font-size:13px;color:#5a746c;margin-bottom:6px;">Téléphone</div><div style="font-size:15px;font-family:'Clash Display';font-weight:600;">07 88 28 06 38</div></a>
+            <a href="mailto:contact@syncroia.com" style="background:#00261f;padding:22px 24px;"><div style="font-size:13px;color:#5a746c;margin-bottom:6px;">Email</div><div style="font-size:15px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;">contact@syncroia.com</div></a>
+            <a href="tel:+33788280638" style="background:#00261f;padding:22px 24px;"><div style="font-size:13px;color:#5a746c;margin-bottom:6px;">Téléphone</div><div style="font-size:15px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;">07 88 28 06 38</div></a>
             
           </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ formSuccess }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(4,17,13,0.72);backdrop-filter:blur(4px);padding:20px;">
+      <div style="position:relative;max-width:420px;width:100%;background:#04110d;border-radius:20px;border:1px solid rgba(15,170,109,0.4);padding:44px 32px;text-align:center;overflow:hidden;animation:success-glow 2.4s ease-in-out infinite;">
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <sc-for list="{{ confettiItems }}" as="c" hint-placeholder-count="30">
+            <span style="position:absolute;top:0;left:{{ c.left }};width:{{ c.size }};height:{{ c.size }};background:{{ c.color }};border-radius:{{ c.radius }};animation:confetti-fall {{ c.duration }} ease-in {{ c.delay }} 1 both;"></span>
+          </sc-for>
+        </div>
+        <div style="position:relative;width:56px;height:56px;border-radius:50%;background:rgba(15,170,109,0.12);border:1px solid rgba(15,170,109,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0faa6d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+        </div>
+        <h3 style="position:relative;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:22px;margin:0 0 10px;">Message envoyé</h3>
+        <p style="position:relative;color:#87a79d;font-size:15px;margin:0 0 26px;">Merci, votre message a bien été envoyé, nous revenons vers vous rapidement.</p>
+        <button onClick="{{ closeFormSuccess }}" style="position:relative;display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 26px;border-radius:8px;background:#0faa6d;color:#03150f;border:none;cursor:pointer;font-family:'Silka';">Fermer</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ================= BLOG ================= -->
+  <sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:100px 0 96px;">
+      <div style="max-width:760px;margin:0 auto;padding:0 28px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Blog</div>
+        <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;line-height:1.15;letter-spacing:0.01em;margin:0;font-size:clamp(28px,4vw,42px);">Automatisation IA pour PME : par où commencer en 2026</h1>
+
+        <div style="margin-top:44px;color:#c7d6d0;font-size:17px;line-height:1.75;display:flex;flex-direction:column;gap:28px;">
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Introduction</h2>
+          <p style="margin:0;">En 2026, l'automatisation par l'intelligence artificielle n'est plus réservée aux grands groupes disposant d'équipes IT dédiées. Les PME de 10 à 250 salariés peuvent désormais automatiser des pans entiers de leur activité — saisie de documents, relances clients, gestion des leads — sans recruter de développeur ni investir des dizaines de milliers d'euros.</p>
+          <p style="margin:0;">Mais par où commencer ? Beaucoup de dirigeants de PME hésitent encore, par manque de temps, de compétences techniques, ou tout simplement parce qu'ils ne savent pas quelle tâche automatiser en premier. Ce guide vous donne une méthode concrète pour démarrer votre transformation par l'IA, étape par étape.</p>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Pourquoi 2026 est le bon moment pour se lancer</h2>
+          <p style="margin:0;">Il y a encore deux ou trois ans, l'automatisation IA restait coûteuse, complexe à mettre en œuvre, et les outils manquaient de fiabilité. La situation a changé pour trois raisons principales :</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Les modèles d'IA sont devenus fiables et abordables.</strong> Le traitement de documents, la compréhension du langage ou l'extraction de données se font aujourd'hui avec un taux d'erreur très faible, pour un coût dérisoire par tâche.</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Les outils d'automatisation (no-code / low-code) se sont démocratisés.</strong> Il n'est plus nécessaire de coder pour connecter un logiciel de facturation, une boîte mail et un CRM entre eux.</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">La concurrence s'équipe.</strong> Les PME qui automatisent leurs tâches à faible valeur ajoutée libèrent du temps pour se concentrer sur le développement commercial — un avantage compétitif de plus en plus difficile à ignorer.</li>
+          </ul>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Étape 1 : identifier les tâches répétitives qui vous coûtent le plus de temps</h2>
+          <p style="margin:0;">Avant de parler d'outils ou de technologie, la vraie question est : <strong style="color:#f3f7f5;">quelles tâches, dans votre entreprise, sont répétitives, chronophages et à faible valeur ajoutée ?</strong></p>
+          <p style="margin:0;">Les candidats les plus fréquents en PME :</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>La saisie manuelle de factures fournisseurs ou de bons de commande</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>La qualification et le suivi des leads commerciaux</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Les relances clients ou administratives</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>La synthèse ou le classement de documents entrants (mails, PDF, formulaires)</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>La mise à jour manuelle de tableurs ou de CRM</li>
+          </ul>
+          <p style="margin:0;">Une bonne pratique consiste à demander à chaque collaborateur clé de noter, pendant une semaine, le temps passé sur ce type de tâches. Cela permet de prioriser : on commence toujours par la tâche qui fait perdre le plus de temps collectif, pas par celle qui semble la plus "facile" à automatiser.</p>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Étape 2 : chiffrer le gain avant d'investir</h2>
+          <p style="margin:0;">Un projet d'automatisation ne devrait jamais démarrer sans un calcul de retour sur investissement, même approximatif. La méthode est simple :</p>
+          <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:steps;">
+            <li style="padding-left:32px;position:relative;counter-increment:steps;"><span style="position:absolute;left:0;top:-1px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;color:#0faa6d;">1.</span>Estimez le nombre d'heures mensuelles passées sur la tâche identifiée</li>
+            <li style="padding-left:32px;position:relative;counter-increment:steps;"><span style="position:absolute;left:0;top:-1px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;color:#0faa6d;">2.</span>Multipliez par le coût horaire chargé de la ou des personnes concernées</li>
+            <li style="padding-left:32px;position:relative;counter-increment:steps;"><span style="position:absolute;left:0;top:-1px;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;color:#0faa6d;">3.</span>Comparez ce montant au coût de mise en place et d'abonnement d'une solution d'automatisation</li>
+          </ol>
+          <p style="margin:0;">À titre d'exemple, pour une PME traitant plusieurs centaines de documents par mois, il n'est pas rare d'observer un temps récupéré équivalent à plusieurs centaines d'euros mensuels, avec un retour sur investissement en deux à trois mois. Ce calcul permet aussi de convaincre en interne — associés, direction financière — plus facilement qu'un discours purement technologique.</p>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Étape 3 : commencer petit, avec un cas d'usage précis</h2>
+          <p style="margin:0;">L'erreur la plus fréquente est de vouloir « tout automatiser » dès le départ. Un projet trop ambitieux prend du retard, coûte plus cher que prévu, et décourage les équipes.</p>
+          <p style="margin:0;">La bonne approche consiste à choisir <strong style="color:#f3f7f5;">un seul processus, bien délimité</strong>, et à l'automatiser de bout en bout avant de passer au suivant. Par exemple :</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Automatiser uniquement la réception et l'extraction des données de factures fournisseurs, sans toucher au reste de la comptabilité</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Automatiser la qualification des leads entrants, sans changer le CRM existant</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>Automatiser la génération de comptes rendus ou de synthèses à partir de documents reçus</li>
+          </ul>
+          <p style="margin:0;">Ce cas d'usage unique sert de preuve de concept : s'il fonctionne et fait gagner du temps mesurable, il devient plus simple de justifier l'automatisation d'un deuxième processus.</p>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Étape 4 : vérifier la compatibilité avec vos outils existants</h2>
+          <p style="margin:0;">Avant de se lancer, il est essentiel de vérifier que les outils déjà utilisés dans l'entreprise (logiciel de comptabilité, ERP, CRM) peuvent être connectés à une solution d'automatisation. La plupart des logiciels modernes proposent des connecteurs ou des API permettant cette intégration ; certains logiciels plus anciens ou développés en interne peuvent en revanche nécessiter des adaptations spécifiques, voire limiter les possibilités d'automatisation.</p>
+          <p style="margin:0;">Un audit rapide de compatibilité, réalisé en amont, évite de découvrir un blocage technique après avoir investi du temps et du budget dans le projet.</p>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Étape 5 : faire appel à un partenaire ou se former en interne</h2>
+          <p style="margin:0;">Deux options s'offrent aux PME :</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Monter en compétence en interne</strong>, si un collaborateur a le temps et l'appétence pour apprendre les outils no-code d'automatisation</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Faire appel à un prestataire spécialisé</strong>, qui conçoit, met en place et maintient le workflow d'automatisation</li>
+          </ul>
+          <p style="margin:0;">La deuxième option est souvent plus rapide et plus fiable pour une première mise en œuvre, notamment lorsque l'entreprise n'a pas de ressource technique dédiée en interne. Elle permet aussi de bénéficier d'un retour d'expérience sur des cas similaires déjà traités dans d'autres PME.</p>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Les erreurs à éviter</h2>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Vouloir automatiser un processus mal défini.</strong> Si le processus manuel actuel est flou ou incohérent selon les personnes, l'automatiser ne fera que reproduire le problème plus vite.</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Négliger la sécurité des données.</strong> Toute automatisation qui traite des données clients ou financières doit respecter le RGPD et prévoir un cadre contractuel clair avec le prestataire.</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Choisir un abonnement récurrent sans visibilité sur le coût total.</strong> Certaines solutions facturent à l'usage de façon peu prévisible ; mieux vaut privilégier des offres avec des paliers clairs.</li>
+            <li style="padding-left:24px;position:relative;"><span style="position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span><strong style="color:#f3f7f5;">Négliger l'accompagnement au changement.</strong> Même automatisée, une tâche reste utilisée par des humains : former les équipes à la nouvelle façon de travailler est indispensable à l'adoption.</li>
+          </ul>
+
+          <h2 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#f3f7f5;margin:16px 0 0;">Conclusion</h2>
+          <p style="margin:0;">L'automatisation IA n'est plus un sujet réservé aux grandes entreprises. En 2026, une PME peut démarrer avec un seul processus bien choisi, un calcul de retour sur investissement clair, et un partenaire capable de livrer une solution fonctionnelle en quelques semaines. La clé n'est pas de tout automatiser d'un coup, mais de prouver la valeur sur un cas concret avant d'étendre la démarche.</p>
+
+        </div>
+
+        <div style="margin-top:56px;padding:36px 32px;border-radius:16px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);text-align:center;">
+          <p style="margin:0;font-size:18px;color:#f3f7f5;font-weight:600;max-width:48ch;margin-left:auto;margin-right:auto;">Vous voulez savoir quelles tâches de votre entreprise pourraient être automatisées, et combien de temps cela vous ferait gagner ?</p>
+          <p style="margin-top:10px;color:#87a79d;font-size:15px;">Contactez Syncro pour un diagnostic gratuit de vos processus.</p>
+          <a href="#" onClick="{{ goContact }}" style="margin-top:22px;display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:600;font-size:15px;padding:12px 26px;border-radius:8px;background:#0faa6d;color:#04110d;">Contacter Syncro</a>
         </div>
       </div>
     </section>
@@ -500,14 +779,14 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
       <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
         <div style="max-width:640px;margin-bottom:56px;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(15,170,109,0.35);background:rgba(15,170,109,0.08);font-size:13px;font-weight:600;color:#0faa6d;margin-bottom:20px;"><span style="width:6px;height:6px;border-radius:50%;background:#0faa6d;"></span>FAQ</div>
-          <h2 style="font-family:'Clash Display';font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Questions fréquentes</h2>
+          <h1 style="font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);margin:0;">Questions fréquentes</h1>
         </div>
         <div>
           <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="8">
             <div style="border-bottom:1px solid rgba(15,170,109,0.22);">
-              <button onClick="{{ item.toggle }}" style="width:100%;text-align:left;background:none;border:none;color:#f3f7f5;font-family:'Clash Display';font-size:17px;font-weight:600;padding:26px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:20px;">
+              <button onClick="{{ item.toggle }}" style="width:100%;text-align:left;background:none;border:none;color:#f3f7f5;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:17px;font-weight:600;padding:26px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:20px;">
                 {{ item.q }}
-                <span style="flex-shrink:0;font-family:'Clash Display';font-size:20px;color:#0faa6d;">{{ item.symbol }}</span>
+                <span style="flex-shrink:0;font-family:'Clash Display','Segoe UI',system-ui,sans-serif;font-size:20px;color:#0faa6d;">{{ item.symbol }}</span>
               </button>
               <sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
                 <p style="color:#87a79d;font-size:15.5px;padding-bottom:26px;max-width:62ch;margin:0;">{{ item.a }}</p>
@@ -526,27 +805,27 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
     <div style="max-width:1180px;margin:0 auto;padding:0 28px;">
       <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:44px;">
         <div>
-          <a href="#" onClick="{{ goHome }}" style="display:inline-flex;"><img src="assets/syncro-logo.png" alt="Syncro" style="height:26px;width:auto;display:block;"></a>
+          <a href="#" onClick="{{ goHome }}" style="display:inline-flex;"><img src="assets/syncro-logo.png" alt="Syncro — automatisation IA pour TPE PME" width="142" height="26" style="height:26px;width:auto;display:block;"></a>
           <p style="color:#87a79d;font-size:14.5px;margin-top:14px;max-width:34ch;">Automatisation par intelligence artificielle de la saisie et du traitement de documents administratifs, pour TPE/PME.</p>
-          <p style="margin-top:16px;font-size:13px;color:#5a746c;">automatisations IA · saisie de documents<br><br>workflows sur mesure · France</p>
+          <p style="margin-top:16px;font-size:13px;color:#5a746c;">automatisations IA<br><br>processus automatisés sur mesure · France</p>
         </div>
         <div>
-          <h4 style="font-size:13px;color:#5a746c;margin-bottom:14px;font-weight:600;">Navigation</h4>
+          <p style="font-size:13px;color:#5a746c;margin:0 0 14px;font-weight:600;">Navigation</p>
           <a href="#" onClick="{{ goHome }}" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">Accueil</a>
           <a href="#" onClick="{{ goPricing }}" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">Tarifs</a>
           <a href="#" onClick="{{ goAbout }}" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">À propos</a>
+          <a href="#" onClick="{{ goBlog }}" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">Blog</a>
           <a href="#" onClick="{{ goFaq }}" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">FAQ</a>
         </div>
         <div>
-          <h4 style="font-size:13px;color:#5a746c;margin-bottom:14px;font-weight:600;">Contact</h4>
+          <p style="font-size:13px;color:#5a746c;margin:0 0 14px;font-weight:600;">Contact</p>
           <a href="mailto:contact@syncroia.com" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">contact@syncroia.com</a>
           <a href="tel:+33788280638" style="display:block;color:#87a79d;font-size:14.5px;margin-bottom:10px;">07 88 28 06 38</a>
           
         </div>
       </div>
       <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#5a746c;font-size:13px;padding-top:24px;border-top:1px solid rgba(15,170,109,0.22);">
-        
-        <span>© 2026 Syncro. Tous droits réservés.</span>
+        <span>© 2026 Syncro. Tous droits réservés. · <a href="#" onClick="{{ goLegal }}" style="color:#5a746c;text-decoration:underline;">Mentions légales</a></span>
       </div>
     </div>
   </footer>
@@ -557,11 +836,121 @@ input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;b
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = {
-    page: 'home',
+    page: typeof window !== 'undefined' ? this.pathToPage(window.location.pathname) : 'home',
     faqOpen: 0,
     simVolume: 150,
     formSubmitted: false,
     servicesOpen: false
+  };
+
+  pageMeta = {
+    home: { title: "Syncro — Automatisation IA et numérisation PME", description: "Automatisation IA pour TPE PME : saisie de factures automatique, dématérialisation et automatisation des tâches administratives en BTP, industrie, transport et négoce.", path: "/" },
+    website: { title: "Création de site web pour PME | Syncro", description: "Création de site web sur mesure pour TPE PME : rapide, sobre, optimisé SEO, livré en 2 semaines. Demandez votre devis gratuit dès aujourd'hui.", path: "/site-web" },
+    pricing: { title: "Tarifs automatisation IA PME | Syncro", description: "Tarifs de l'automatisation IA pour PME : mise en place dès 990 €, abonnement dès 249 €/mois. Estimez le temps que vous pourriez gagner.", path: "/tarifs" },
+    about: { title: "À propos de Syncro | Automatisation IA PME", description: "Syncro automatise la saisie de factures et la dématérialisation des processus administratifs pour les TPE PME, en toute conformité RGPD et hébergement UE.", path: "/a-propos" },
+    contact: { title: "Contact Syncro | Audit automatisation gratuit", description: "Contactez Syncro pour un audit gratuit de vos processus administratifs et découvrez comment l'automatisation IA réduit votre charge de travail.", path: "/contact" },
+    faq: { title: "FAQ automatisation IA PME | Syncro", description: "Questions fréquentes sur l'automatisation IA, la numérisation des processus et la dématérialisation des tâches administratives pour TPE PME.", path: "/faq" },
+    legal: { title: "Mentions légales | Syncro", description: "Mentions légales du site Syncro : éditeur, hébergement, propriété intellectuelle, données personnelles et cookies.", path: "/mentions-legales" },
+    blog: { title: "Automatisation IA pour PME en 2026 : le guide pour démarrer | Syncro", description: "Vous dirigez une PME et voulez automatiser vos tâches répétitives grâce à l'IA ? Découvrez par où commencer, les erreurs à éviter et les cas d'usage les plus rentables en 2026.", path: "/blog/automatisation-ia-pme-2026" }
+  };
+
+  pathToPage(path) {
+    const map = { '/site-web': 'website', '/tarifs': 'pricing', '/a-propos': 'about', '/contact': 'contact', '/faq': 'faq', '/mentions-legales': 'legal', '/blog/automatisation-ia-pme-2026': 'blog' };
+    return map[path] || 'home';
+  }
+
+  pageToPath(page) {
+    const map = { website: '/site-web', pricing: '/tarifs', about: '/a-propos', contact: '/contact', faq: '/faq', legal: '/mentions-legales', blog: '/blog/automatisation-ia-pme-2026', home: '/' };
+    return map[page] || '/';
+  }
+
+  setMetaTag(id, attr, value) {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute(attr, value);
+  }
+
+  applyMeta(page) {
+    const meta = this.pageMeta[page] || this.pageMeta.home;
+    const url = 'https://syncroia.com' + meta.path;
+    document.title = meta.title;
+    this.setMetaTag('meta-description', 'content', meta.description);
+    this.setMetaTag('canonical-link', 'href', url);
+    this.setMetaTag('og-title', 'content', meta.title);
+    this.setMetaTag('og-description', 'content', meta.description);
+    this.setMetaTag('og-url', 'content', url);
+    this.setMetaTag('twitter-title', 'content', meta.title);
+    this.setMetaTag('twitter-description', 'content', meta.description);
+
+    const oldFaq = document.getElementById('ld-faq');
+    if (oldFaq) oldFaq.remove();
+    if (page === 'faq') {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'ld-faq';
+      script.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: this.faqData.map(item => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a }
+        }))
+      });
+      document.head.appendChild(script);
+    }
+  }
+
+  initLenis() {
+    if (this._lenis) return;
+    const L = window.Lenis;
+    if (!L) { this._lenisTries = (this._lenisTries || 0) + 1; if (this._lenisTries < 100) setTimeout(() => this.initLenis(), 100); return; }
+    try {
+      this._lenis = new L({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 3), smoothWheel: true });
+    } catch (e) { return; }
+    const raf = time => { if (!this._lenis) return; this._lenis.raf(time); this._rafId = requestAnimationFrame(raf); };
+    this._rafId = requestAnimationFrame(raf);
+  }
+
+  componentDidMount() {
+    const loader = document.getElementById('site-loader');
+    if (loader) {
+      loader.style.transition = 'opacity .4s ease';
+      loader.style.opacity = '0';
+      setTimeout(() => loader.remove(), 400);
+    }
+    this.initLenis();
+    document.documentElement.lang = 'fr';
+    this.applyMeta(this.state.page);
+    this._onPopState = () => {
+      const page = this.pathToPage(window.location.pathname);
+      this.applyMeta(page);
+      this.setState({ page });
+    };
+    window.addEventListener('popstate', this._onPopState);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this._onPopState);
+    if (this._rafId) cancelAnimationFrame(this._rafId);
+    if (this._lenis) { this._lenis.destroy(); this._lenis = null; }
+  }
+
+  integrationNames = ["Gmail","Slack","WhatsApp Business","Google Drive","Google Sheets","Odoo","HubSpot","OpenAI","Anthropic (Claude)","Trello","Notion"];
+
+  BLANK_PX = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+
+  integrationLogoSrc = {
+    "Gmail": "assets/logos/gmail.svg",
+    "Slack": "assets/logos/slack.svg",
+    "WhatsApp Business": "assets/logos/whatsapp.png",
+    "Google Drive": "assets/logos/google-drive.svg",
+    "Google Sheets": "assets/logos/google-sheets.svg",
+    "Odoo": "assets/logos/odoo.svg",
+    "HubSpot": "assets/logos/hubspot.svg",
+    "OpenAI": "assets/logos/openai.svg",
+    "Anthropic (Claude)": "assets/logos/claude.svg",
+    "Trello": "assets/logos/trello.svg",
+    "Notion": "assets/logos/notion.svg"
   };
 
   faqData = [
@@ -572,22 +961,76 @@ class Component extends DCLogic {
     { q: "Mes données sont-elles en sécurité ?", a: "Oui. Les données sont hébergées au sein de l'Union Européenne, chiffrées, et un accord de sous-traitance RGPD (DPA) encadre précisément leur traitement. Aucune donnée n'est conservée au-delà de ce qui est nécessaire au fonctionnement de l'automatisation." },
     { q: "Combien de temps prend la mise en place ?", a: "2 semaines maximum après l'audit initial, selon le nombre d'automatisations à mettre en place et la complexité de vos documents." },
     { q: "Puis-je résilier à tout moment ?", a: "Oui, l'abonnement mensuel peut être résilié avec un préavis de 30 jours, sauf durée d'engagement particulière convenue au devis." },
-    { q: "L'automatisation, est-ce réservé aux grandes entreprises ?", a: "Non. La numérisation des processus et l'automatisation des tâches administratives sont aujourd'hui accessibles aux TPE et PME, sans équipe technique dédiée, comme le documente France Num, le dispositif public d'accompagnement à la transformation numérique des entreprises." }
+    { q: "L'automatisation, est-ce réservé aux grandes entreprises ?", a: "Non. La numérisation des processus et l'automatisation des tâches administratives sont aujourd'hui accessibles aux TPE et PME, sans équipe technique dédiée, comme le documente France Num, le dispositif public d'accompagnement à la transformation numérique des entreprises." },
+    { q: "Comment automatiser la saisie de factures fournisseurs dans une TPE ?", a: "Le document (facture, bon de commande) est envoyé à Syncro par email ou dépôt de fichier. L'IA en extrait automatiquement les informations clés et les transfère dans votre ERP ou logiciel de gestion, sans ressaisie manuelle. Le workflow est calibré sur vos documents réels lors de l'audit." },
+    { q: "Comment automatiser la relance des factures impayées ?", a: "Syncro peut détecter les échéances dépassées dans votre outil de facturation et déclencher automatiquement l'envoi de relances par email, selon les règles que vous définissez. Vous gardez la main sur le ton et la fréquence des relances." },
+    { q: "Comment automatiser la génération de devis ?", a: "À partir d'informations transmises (email, formulaire, échange avec un client), l'IA peut préremplir et générer un devis dans votre outil habituel, prêt à être vérifié et envoyé par votre équipe. La validation finale reste toujours humaine." },
+    { q: "Comment automatiser le classement et l'archivage des documents administratifs ?", a: "Les documents traités sont automatiquement renommés, catégorisés et rangés dans l'arborescence ou l'outil de stockage que vous utilisez déjà, selon des règles définies avec vous lors de l'audit." },
+    { q: "Quel outil utiliser pour automatiser la facturation et la relance client ?", a: "Il n'est pas nécessaire d'ajouter un nouvel outil : Syncro se branche directement sur votre logiciel de facturation actuel (Pennylane, Sage, EBP, Odoo...) pour automatiser la saisie et les relances, sans changer vos habitudes de travail." },
+    { q: "Quel logiciel choisir pour automatiser la saisie de documents administratifs ?", a: "La question n'est pas de choisir un nouveau logiciel mais de connecter une automatisation à celui que vous avez déjà. Syncro s'intègre à la plupart des ERP et outils de gestion du marché plutôt que de vous imposer une plateforme supplémentaire." },
+    { q: "Peut-on automatiser la gestion des devis et factures sans changer d'outil ?", a: "Oui, c'est le principe de Syncro : l'automatisation vient se connecter à votre logiciel de facturation ou votre ERP existant, sans migration ni changement d'outil pour vos équipes." },
+    { q: "Est-ce que je peux automatiser le suivi des paiements clients ?", a: "Oui. Syncro peut suivre l'état des factures dans votre outil de gestion et vous alerter (ou relancer automatiquement) en cas de retard, à partir des données déjà présentes dans votre système." },
+    { q: "Combien coûte l'automatisation de la facturation et de la relance client ?", a: "Comme pour les autres automatisations Syncro, la mise en place démarre à 990 € HT et l'abonnement à 249 € HT/mois, ajustés selon votre volume de factures. Un audit gratuit permet d'obtenir un chiffrage précis avant tout engagement." },
+    { q: "Quel est le retour sur investissement de l'automatisation des tâches administratives ?", a: "Chez nos clients, le temps investi dans l'abonnement est généralement rentabilisé en moins de 2,5 mois, en comparant le coût de l'abonnement au temps de saisie manuelle évité. Le calcul exact dépend de votre volume de documents et du salaire chargé de la personne qui les traite aujourd'hui." },
+    { q: "Avez-vous des exemples concrets d'automatisation de factures et de devis ?", a: "Oui : saisie automatique de factures fournisseurs, rapprochement bons de livraison/factures, génération de devis à partir d'échanges clients, ou relance automatique des factures impayées. Chaque cas est calibré sur les documents réels du client lors de l'audit." },
+    { q: "Peut-on automatiser ses tâches administratives sans savoir coder ?", a: "Oui. Syncro construit et maintient le processus automatisé pour vous : vous n'avez aucune ligne de code à écrire ni aucun outil technique à apprendre. Votre équipe continue à travailler dans son logiciel habituel, l'automatisation se fait en arrière-plan." },
+    { q: "Comment l'IA de Syncro extrait-elle les informations d'un document ?", a: "L'IA lit le contenu du document (facture, devis, bon de commande...), identifie les champs pertinents (montants, dates, références, coordonnées) et les transfère au bon endroit dans votre outil de gestion. Les cas ambigus ou sensibles peuvent être soumis à une validation humaine avant transfert." },
+    { q: "Par quelle tâche commencer pour automatiser son administratif ?", a: "On recommande de commencer par la tâche la plus répétitive et la plus chronophage pour votre équipe, comme la saisie de factures ou la relance client. L'audit gratuit initial sert justement à identifier ce premier périmètre, borné et mesurable." },
+    { q: "Comment faire un audit des tâches administratives à automatiser ?", a: "L'audit Syncro consiste à regarder vos documents réels, votre logiciel actuel et le volume à traiter, pour identifier les tâches où l'automatisation apporte le plus de gain. Il est gratuit et sans engagement." },
+    { q: "Comment un responsable administratif peut-il automatiser ses tâches chronophages ?", a: "En listant les tâches répétitives (saisie, relances, classement) traitées manuellement au quotidien, puis en les confiant à un workflow Syncro connecté à l'outil déjà utilisé par le service. Le responsable garde le contrôle sur les étapes sensibles." },
+    { q: "Comment réduire les erreurs de saisie dans les documents administratifs ?", a: "En confiant l'extraction des données à l'IA plutôt qu'à une saisie manuelle répétitive, source classique d'erreurs de frappe ou d'oubli. Les données extraites peuvent être vérifiées avant transfert final si vous le souhaitez." }
   ];
 
   goTo(page, e) {
     if (e) e.preventDefault();
+    window.history.pushState(null, '', this.pageToPath(page));
+    this.applyMeta(page);
     this.setState({ page, servicesOpen: false });
-    window.scrollTo(0, 0);
+    if (this._lenis) this._lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0);
   }
 
   tierFor(volume) {
     return 249;
   }
 
-  onFormSubmit(e) {
+  async onFormSubmit(e) {
     e.preventDefault();
-    this.setState({ formSubmitted: true });
+    const form = e.target;
+    const data = {};
+    new FormData(form).forEach((value, key) => { data[key] = value; });
+    const required = ['nom', 'entreprise', 'email', 'telephone', 'message'];
+    const missing = required.some((k) => !data[k] || !String(data[k]).trim());
+    const badEmail = !data.email || !String(data.email).includes('@');
+    const badPhone = !data.telephone || String(data.telephone).trim().length < 9;
+    if (missing || badEmail || badPhone) {
+      this.setState({ formInvalid: true, formError: false, formSubmitting: false });
+      return;
+    }
+    this.setState({ formSubmitting: true, formSuccess: false, formError: false, formInvalid: false });
+    try {
+      const res = await fetch('https://syncro.servegame.com/webhook/contact-syncro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        form.reset();
+        const colors = ['#0faa6d', '#35d492', '#006849', '#f3f7f5'];
+        const confetti = Array.from({ length: 30 }, () => ({
+          left: Math.random() * 100 + '%',
+          size: (5 + Math.random() * 6) + 'px',
+          color: colors[Math.floor(Math.random() * colors.length)],
+          radius: Math.random() > 0.5 ? '50%' : '2px',
+          duration: (1.2 + Math.random() * 1) + 's',
+          delay: (Math.random() * 0.6) + 's'
+        }));
+        this.setState({ formSubmitting: false, formSuccess: true, formError: false, confetti });
+      } else {
+        this.setState({ formSubmitting: false, formSuccess: false, formError: true });
+      }
+    } catch (err) {
+      this.setState({ formSubmitting: false, formSuccess: false, formError: true });
+    }
   }
 
   renderVals() {
@@ -613,7 +1056,10 @@ class Component extends DCLogic {
       isAbout: page === 'about',
       isContact: page === 'contact',
       isFaq: page === 'faq',
+      isLegal: page === 'legal',
+      isBlog: page === 'blog',
       isWebsite: page === 'website',
+      showRibbon: page === 'home',
       navColorHome: page === 'home' ? '#f3f7f5' : '#87a79d',
       navColorPricing: page === 'pricing' ? '#f3f7f5' : '#87a79d',
       navColorAbout: page === 'about' ? '#f3f7f5' : '#87a79d',
@@ -623,6 +1069,8 @@ class Component extends DCLogic {
       goAbout: (e) => this.goTo('about', e),
       goContact: (e) => this.goTo('contact', e),
       goFaq: (e) => this.goTo('faq', e),
+      goLegal: (e) => this.goTo('legal', e),
+      goBlog: (e) => this.goTo('blog', e),
       goWebsite: (e) => this.goTo('website', e),
       faqItems,
       simVolume: volume,
@@ -635,7 +1083,14 @@ class Component extends DCLogic {
       simNet: net === null ? 'Sur devis' : (net >= 0 ? '+' : '') + net.toLocaleString('fr-FR') + ' €/mois',
       simNetColor: net === null ? '#f3f7f5' : (net >= 0 ? '#0faa6d' : '#f3f7f5'),
       onSimChange: (e) => this.setState({ simVolume: parseInt(e.target.value, 10) }),
-      formSubmitted: this.state.formSubmitted,
+      formSubmitting: !!this.state.formSubmitting,
+      formSuccess: !!this.state.formSuccess,
+      formError: !!this.state.formError,
+      formInvalid: !!this.state.formInvalid,
+      formButtonLabel: this.state.formSubmitting ? 'Envoi en cours...' : 'Envoyer',
+      formButtonOpacity: this.state.formSubmitting ? 0.6 : 1,
+      confettiItems: this.state.confetti || [],
+      closeFormSuccess: () => this.setState({ formSuccess: false }),
       onFormSubmit: (e) => this.onFormSubmit(e),
       servicesOpen: this.state.servicesOpen,
       servicesColor: this.state.servicesOpen ? '#f3f7f5' : '#87a79d',
